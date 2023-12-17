@@ -1,10 +1,12 @@
+import "../styles/Cat.css"
+
 function Cat({ name, latinName, image }) {
   return (
-    <div>
+    <div className="cat-container">
       <h3>{name}</h3>
       <span>({latinName})</span>
-      <div>
-        <img src={image} alt={`${name}: ${latinName}`} />
+      <div className="cat-image-container">
+        <img className="cat-image" src={image} alt={`${name}: ${latinName}`} />
       </div>
     </div>
   );
