@@ -1,0 +1,15 @@
+.cat-container {
+    border: 10px solid #443d3d;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .cat-image-container {
+    margin-top: 10px;
+  }
+  
+  .cat-image {
+    max-width: 75%; 
+    height: auto;    
+  }
