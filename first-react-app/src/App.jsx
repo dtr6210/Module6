@@ -2,9 +2,9 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import ExampleComponent from "./components/ExampleComponent";
 import Greeting from "./components/Greeting";
 import CatList from "./components/BigCat";
+import Emoji from "./components/Emoji";
 
 
 
@@ -26,6 +26,7 @@ function App() {
         <Greeting name='John'/>
         <Greeting name='Bobby'> What up???!!!?!?!?!!?</Greeting>
         <CatList />
+        <Emoji />
     </>
   );
 }
