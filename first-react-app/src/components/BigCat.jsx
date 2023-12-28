@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Cat from "./SingleCat";
 
 function CatList() {
@@ -35,7 +36,9 @@ function CatList() {
     },
   ];
 
-  const catItemsComponent = cats.map((cat) => (
+  const [currentCats, setCurrentCats] = useState(cats);
+
+  const catItemsComponent = currentCats.map((cat) => (
     <Cat
       key={cat.name}
       name={cat.name}
@@ -44,9 +47,41 @@ function CatList() {
     />
   ));
 
+  const handleSortCatsByName = () => {
+    console.log("Handlesortcats");
+    let newCats = [...currentCats];
+    newCats.reverse();
+    //sort compares a to b in arrow function
+    newCats.sort((a, b) => a.name.localeCompare(b.name));
+    setCurrentCats(newCats);
+  };
+
+  const handleReverseCats = () => {
+    console.log("Handlereversecats");
+    let newCats = [...currentCats];
+    newCats.reverse();
+    setCurrentCats(newCats);
+  };
+
+  const handleFilterPantheraCats = () => {
+    console.log("HandleFilterPantheraCats");
+    let pantheraCats = cats.filter((cat) => cat.latinName.includes("Panthera"));
+    setCurrentCats(pantheraCats);
+  };
+
+  const handleResetCats = () => {
+    console.log("HandleResetCats")
+    setCurrentCats(cats);
+  }
+
+
   return (
     <div>
       <ul>{catItemsComponent}</ul>
+      <button onClick={handleReverseCats}>Reverse Cats!</button>
+      <button onClick={handleSortCatsByName}>Sort Cats by Name!!</button>
+      <button onClick={handleFilterPantheraCats}>Filter Panthera Family</button>
+      <button onClick={handleResetCats}>Reset Cat List</button>
     </div>
   );
 }
