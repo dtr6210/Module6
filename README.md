@@ -22,3 +22,26 @@ Exercise 3
 renders a happy emoji.
 • Add a ‘Change Mood’ button in the component to switch
 between 2 emojis when clicked.
+
+Exercise 4
+• Extend your BigCats component from Exercise 2 to
+include buttons for alphabetically sorting and reversing the
+list
+• Add another button to filter the list and display only the
+cats in the ‘Panthera’ family, and one to reset and show
+the full list.
+
+Exercise 5
+• Create a new AddCatForm component that renders a form
+with controlled components to capture name, latinName
+and image details for a new Big Cat (extending Exercises
+2 and 4)
+• Submitting the form should update the parent BigCats
+component and re-render the list
+• Add a Delete link next to each cat allowing it to be removed
+from the list.
+
+Exercise 6
+• Design and create a basic Calculator component which
+takes 2 numbers and the operator provided by the user and
+displays the result.
