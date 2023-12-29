@@ -5,6 +5,7 @@ import "./App.css";
 import Greeting from "./components/Greeting";
 import CatList from "./components/BigCat";
 import Emoji from "./components/Emoji";
+import Calculator from "./components/Calculator";
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Greeting name='Bobby'> What up???!!!?!?!?!!?</Greeting>
         <CatList />
         <Emoji />
+        <Calculator />
     </>
   );
 }
