@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Cat from "./SingleCat";
+import AddCatForm from "./AddCatForm";
 
 function CatList() {
   const cats = [
@@ -44,8 +45,11 @@ function CatList() {
       name={cat.name}
       latinName={cat.latinName}
       image={cat.image}
+      onDelete={() => handleDeleteCat(cat.name)}
     />
   ));
+
+  //sorts cats by name
 
   const handleSortCatsByName = () => {
     console.log("Handlesortcats");
@@ -56,6 +60,8 @@ function CatList() {
     setCurrentCats(newCats);
   };
 
+  //reverse cat list
+
   const handleReverseCats = () => {
     console.log("Handlereversecats");
     let newCats = [...currentCats];
@@ -63,17 +69,30 @@ function CatList() {
     setCurrentCats(newCats);
   };
 
+  //filter panthera family
   const handleFilterPantheraCats = () => {
     console.log("HandleFilterPantheraCats");
     let pantheraCats = cats.filter((cat) => cat.latinName.includes("Panthera"));
     setCurrentCats(pantheraCats);
   };
 
+  //resets cats
   const handleResetCats = () => {
-    console.log("HandleResetCats")
+    console.log("HandleResetCats");
     setCurrentCats(cats);
-  }
+  };
 
+  //add new cat
+  const handleAddCat = (newCat) => {
+    setCurrentCats((prevCats) => [...prevCats, newCat]);
+  };
+
+  // delete cat
+  const handleDeleteCat = (catName) => {
+    setCurrentCats((prevCats) =>
+      prevCats.filter((cat) => cat.name !== catName)
+    );
+  };
 
   return (
     <div>
@@ -82,6 +101,7 @@ function CatList() {
       <button onClick={handleSortCatsByName}>Sort Cats by Name!!</button>
       <button onClick={handleFilterPantheraCats}>Filter Panthera Family</button>
       <button onClick={handleResetCats}>Reset Cat List</button>
+      <AddCatForm onAddCat={handleAddCat} />
     </div>
   );
 }
